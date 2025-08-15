@@ -1,0 +1,28 @@
+services:
+  app:
+    image: gradle:8.9-jdk17-alpine
+    command: gradle bootRun
+    container_name: todo-list-demo-app
+    working_dir: /home/gradle/project
+    volumes:
+      - .:/home/gradle/project
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: todo-list-demo-db
+    environment:
+      POSTGRES_DB: todolistdemo
+      POSTGRES_USER: todolistdemo
+      POSTGRES_PASSWORD: todolistdemo
+    ports:
+      - 5432:5432
+    volumes:
+      - todo-list-demo-db-data:/var/lib/postgresql/data
+
+volumes:
+  todo-list-demo-db-data:
+    name: todo-list-demo-db
