@@ -6,6 +6,8 @@ services:
     working_dir: /home/gradle/project
     volumes:
       - .:/home/gradle/project
+    env_file:
+      - .env
     ports:
       - 8080:8080
     depends_on:
@@ -14,10 +16,8 @@ services:
   db:
     image: postgres:16-alpine
     container_name: todo-list-demo-db
-    environment:
-      POSTGRES_DB: todolistdemo
-      POSTGRES_USER: todolistdemo
-      POSTGRES_PASSWORD: todolistdemo
+    env_file:
+      - .env
     ports:
       - 5432:5432
     volumes:
