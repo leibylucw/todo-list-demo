@@ -1,0 +1,6 @@
+/* minimal styles */
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;line-height:1.5;margin:0}
+main{padding:16px;max-width:800px}
+nav a{margin-right:12px}
+input,button{font-size:1rem;padding:.5rem;margin:.25rem 0}
+ul{padding-left:1rem}
