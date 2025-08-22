@@ -18,7 +18,11 @@ services:
     container_name: todo-list-demo-app
     working_dir: /home/gradle/project
     volumes:
-      - .:/home/gradle/project
+      - ./backend/gradle:/home/gradle/project/gradle
+      - ./backend/src:/home/gradle/project/src
+      - ./backend/build.gradle:/home/gradle/project/build.gradle
+      - ./backend/gradlew:/home/gradle/project/gradlew
+      - ./backend/settings.gradle:/home/gradle/project/settings.gradle
     env_file:
       - .env
     ports:
